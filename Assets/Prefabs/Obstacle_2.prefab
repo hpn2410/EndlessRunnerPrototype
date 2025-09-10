@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2380212398696849406}
   - component: {fileID: 3644067086456442685}
   - component: {fileID: 2427947237249173313}
+  - component: {fileID: 7494802471794104833}
   m_Layer: 0
   m_Name: Obstacle_2
   m_TagString: Box
@@ -97,5 +98,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dada21d2583c1b47bec2460a9725127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &7494802471794104833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9046327613034164231}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5078ef287fa610b46900407c528fd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

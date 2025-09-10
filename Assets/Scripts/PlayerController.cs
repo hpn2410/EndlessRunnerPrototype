@@ -27,10 +27,10 @@ public class PlayerController : MonoBehaviour
             ApplyGravity();
             CheckCollisionWithObstacles();
         }
-        else
-        {
-            playerAnimator.SetBool("IsIdle", true);
-        }
+        //else
+        //{
+        //    playerAnimator.SetBool("IsIdle", true);
+        //}
             
     }
 
@@ -42,6 +42,7 @@ public class PlayerController : MonoBehaviour
             isGrounded = false;
 
             playerAnimator.SetTrigger("Jump");
+            SoundManager.Instance.PlaySound(SoundType.Jump);
         }
     }
 
@@ -92,14 +93,16 @@ public class PlayerController : MonoBehaviour
 
             ObstacleController obstacleController = obstacle.GetComponent<ObstacleController>();
             float obstacleRadius = obstacleController.GetObstacleRadius();
-            Debug.LogWarning("Obstacle name and radius: " + obstacle.name + obstacleRadius);
 
             float distance = Vector3.Distance(transform.position, obstacle.position);
 
             if (distance < playerRadius + obstacleRadius)
             {
                 Debug.Log("Hit obstacle: " + obstacle.name);
+                playerAnimator.SetTrigger("IsDeath");
                 GameManager.Instance.SetState(GameState.GameOver);
+                SoundManager.Instance.StopSound(SoundType.Background);
+                SoundManager.Instance.PlaySound(SoundType.Crash);
             }
         }
     }

@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
     private GameState currentState;
 
     private float difficultyMultiplier = 1f;
-    private float increaseRate = .2f;
+    private float increaseRate = 0.1f;
     private float interval = 10f;
 
     public void SetState(GameState state)
@@ -59,6 +59,8 @@ public class GameManager : MonoBehaviour
     {
         StartCoroutine(InitializeAndSpawn());
         StartCoroutine(ScaleDifficulty());
+
+        SoundManager.Instance.PlaySound(SoundType.Background, true);
     }
 
     private IEnumerator InitializeAndSpawn()

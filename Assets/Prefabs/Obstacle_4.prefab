@@ -96,6 +96,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2710981351503874614}
   - component: {fileID: 8916119310701316301}
+  - component: {fileID: -8898829073687896986}
   m_Layer: 0
   m_Name: Obstacle_4
   m_TagString: Barrier
@@ -129,5 +130,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dada21d2583c1b47bec2460a9725127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-8898829073687896986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7395930574895628508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5078ef287fa610b46900407c528fd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

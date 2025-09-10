@@ -2,7 +2,7 @@ using UnityEngine;
 
 public class ObstacleController : MonoBehaviour
 {
-    private float obstacleSpeed = 8f;
+    //private float obstacleSpeed = 8f;
 
     private float minX = -20f;
 
@@ -18,7 +18,7 @@ public class ObstacleController : MonoBehaviour
     {
         if (!GameManager.Instance.IsGameOver())
         {
-            transform.position += Vector3.left * obstacleSpeed * GameManager.Instance.GetDifficultyMultiplier() * Time.deltaTime;
+            //transform.position += Vector3.left * obstacleSpeed * GameManager.Instance.GetDifficultyMultiplier() * Time.deltaTime;
 
             // return to pool when out of range
             if (transform.position.x < minX)

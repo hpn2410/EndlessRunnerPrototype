@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1165819791196827415}
   - component: {fileID: 2501090634654990159}
   - component: {fileID: 3742137954875813721}
+  - component: {fileID: 1286440953902058330}
   m_Layer: 0
   m_Name: Obstacle_1
   m_TagString: Barrel
@@ -97,5 +98,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4dada21d2583c1b47bec2460a9725127, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1286440953902058330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7343560086711678106}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5078ef287fa610b46900407c528fd1cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
