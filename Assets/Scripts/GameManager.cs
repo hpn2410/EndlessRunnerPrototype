@@ -18,6 +18,10 @@ public class GameManager : MonoBehaviour
     private float spawnDelay = 5f;
     private GameState currentState;
 
+    private float difficultyMultiplier = 1f;
+    private float increaseRate = .2f;
+    private float interval = 10f;
+
     public void SetState(GameState state)
     {
         currentState = state;
@@ -54,6 +58,7 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         StartCoroutine(InitializeAndSpawn());
+        StartCoroutine(ScaleDifficulty());
     }
 
     private IEnumerator InitializeAndSpawn()
@@ -92,5 +97,19 @@ public class GameManager : MonoBehaviour
 
             yield return new WaitForSeconds(spawnDelay);
         }
+    }
+
+    private IEnumerator ScaleDifficulty()
+    {
+        while (!IsGameOver())
+        {
+            yield return new WaitForSeconds(interval);
+            difficultyMultiplier += increaseRate;
+        }
+    }
+
+    public float GetDifficultyMultiplier()
+    {
+        return difficultyMultiplier;
     }
 }
