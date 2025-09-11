@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public enum GameState
 {
@@ -12,15 +13,19 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
+    [Header("Properties")]
     [SerializeField] private Transform spawnPoint; // obstacles spawn pos
     [SerializeField] private string[] obstacleTags;
+    [SerializeField] private GameObject gameOverPanel;
 
-    private float spawnDelay = 5f;
-    private GameState currentState;
+    [Header("Difficulty")]
+    [SerializeField] private float increaseRate = 0.2f;
+    [SerializeField] private float interval = 10f; // countdown timer to increase difficulty
+    [SerializeField] private float spawnDelay = 5f; // countdown timer to spawn obstacle
+
 
     private float difficultyMultiplier = 1f;
-    private float increaseRate = 0.1f;
-    private float interval = 10f;
+    private GameState currentState;
 
     public void SetState(GameState state)
     {
@@ -113,5 +118,22 @@ public class GameManager : MonoBehaviour
     public float GetDifficultyMultiplier()
     {
         return difficultyMultiplier;
+    }
+
+    public void ActiveEndGameUI(bool isActive)
+    {
+        gameOverPanel.SetActive(isActive);
+    }
+
+    public void PlayAgainBtnClicked()
+    {
+        SceneManager.LoadScene("EndLessRunner");
+    }
+
+    public void QuitGameBtnClicked()
+    {
+        UnityEditor.EditorApplication.isPlaying = false; // quit game in editor
+
+        Application.Quit(); // quit game in build
     }
 }

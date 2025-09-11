@@ -45,7 +45,9 @@ public class SoundManager : MonoBehaviour
     {
         if (soundDict.TryGetValue(type, out var src))
         {
-            if (!src.isPlaying) src.Play();
+            if (!src.isPlaying) 
+                src.Play();
+
             src.loop = isLoop;
         }
     }
@@ -54,7 +56,8 @@ public class SoundManager : MonoBehaviour
     {
         if (soundDict.TryGetValue(type, out var src))
         {
-            if (src.isPlaying) src.Stop();
+            if (src.isPlaying) 
+                src.Stop();
         }
     }
 }

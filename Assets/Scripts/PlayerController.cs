@@ -7,6 +7,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float jumpForce = 8f;
     [SerializeField] float gravity = -9.8f;
     [SerializeField] bool fallFaster = false;
+    [Header("ParticleSystem")]
+    [SerializeField] ParticleSystem dirtParticle;
+    [SerializeField] ParticleSystem smokeParticle;
     float groundY = 0f; // ground's pos
 
     float velocityY = 0f;
@@ -16,6 +19,7 @@ public class PlayerController : MonoBehaviour
     private void Start()
     {
         playerAnimator = GetComponent<Animator>();
+        dirtParticle.Play();
     }
 
     // Update is called once per frame
@@ -27,10 +31,6 @@ public class PlayerController : MonoBehaviour
             ApplyGravity();
             CheckCollisionWithObstacles();
         }
-        //else
-        //{
-        //    playerAnimator.SetBool("IsIdle", true);
-        //}
             
     }
 
@@ -41,6 +41,7 @@ public class PlayerController : MonoBehaviour
             velocityY = jumpForce;
             isGrounded = false;
 
+            dirtParticle.Stop();
             playerAnimator.SetTrigger("Jump");
             SoundManager.Instance.PlaySound(SoundType.Jump);
         }
@@ -66,6 +67,12 @@ public class PlayerController : MonoBehaviour
         {
             playerPos.y = groundY;
             velocityY = 0f;
+
+            if (!isGrounded)
+            {
+                dirtParticle.Play();
+            }
+
             isGrounded = true;
         }
 
@@ -99,10 +106,13 @@ public class PlayerController : MonoBehaviour
             if (distance < playerRadius + obstacleRadius)
             {
                 Debug.Log("Hit obstacle: " + obstacle.name);
+                dirtParticle.Stop();
+                smokeParticle.Play();
                 playerAnimator.SetTrigger("IsDeath");
                 GameManager.Instance.SetState(GameState.GameOver);
                 SoundManager.Instance.StopSound(SoundType.Background);
                 SoundManager.Instance.PlaySound(SoundType.Crash);
+                GameManager.Instance.ActiveEndGameUI(GameManager.Instance.IsGameOver());
             }
         }
     }

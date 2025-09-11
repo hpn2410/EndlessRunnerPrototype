@@ -54,7 +54,7 @@ public class ObstaclePooling : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.LogWarning($"Pool with tag {tag} doesn't exist.");
+            Debug.LogWarning($"Pool with {tag} doesn't exist.");
             return null;
         }
 
@@ -76,7 +76,7 @@ public class ObstaclePooling : MonoBehaviour
             }
             else
             {
-                Debug.LogWarning($"No prefab found for tag {tag}.");
+                Debug.LogWarning($"No prefab found for {tag}.");
                 return null;
             }
         }
@@ -86,7 +86,7 @@ public class ObstaclePooling : MonoBehaviour
     {
         if (!poolDictionary.ContainsKey(tag))
         {
-            Debug.LogWarning($"Pool with tag {tag} doesn't exist.");
+            Debug.LogWarning($"Pool with {tag} doesn't exist.");
             return;
         }
 
